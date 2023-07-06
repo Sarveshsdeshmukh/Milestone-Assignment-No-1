@@ -1,0 +1,65 @@
+<!-- 23. Change the color on click
+Create a button that utilizes an array of colors and the Math.random method to change the background color
+of the page upon clicking. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Click Me - To Change</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            border-style: none;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+      #container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+      }
+      #button {
+        padding: 20px 40px;
+        color: #000000;
+        font-size: 32px;
+        background-color: #99ff00;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <button id="button">Click Me - To Change</button>
+    </div>
+
+    <script>
+      const button = document.getElementById("button");
+      const container = document.getElementById("container");
+
+      function randomColor() {
+        let color = "0123456789abcdef";
+        let vals = "#";
+        for (let i = 0; i < 6; i++) {
+          vals = vals + color[Math.floor(Math.random() * 16)];
+        }
+        return vals;
+      }
+      function randomColorMaker() {
+        container.style.backgroundColor = randomColor();
+      }
+      function randomColorMakerButton(){
+        button.style.backgroundColor = randomColor();
+        button.style.color = randomColor();
+      }
+
+      button.addEventListener("click", randomColorMaker);
+      button.addEventListener("click", randomColorMakerButton);
+    </script>
+  </body>
+</html>

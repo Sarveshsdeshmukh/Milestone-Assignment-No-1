@@ -1,0 +1,89 @@
+<!-- 25. Move the Image
+The objective is to write a JavaScript program that enables an image to move according to the direction
+specified by the arrow keys. The program must be able to recognize and respond to the input from the arrow
+keys, and accordingly, update the position of the image on the screen. The program should be able to handle
+the movement of the image in all directions, including up, down, left, and right, in a smooth and responsive
+manner. Have a look at the event key codes before starting the project. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Magic</title>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Style Sheet -->
+    <style>
+        #main{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 4vh;
+        }
+        #container{
+            width: 90vw;
+            height: 90vh;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        #div{
+            height: 90vh;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        i{
+            font-size: 4vw;
+        }
+        img{
+            width: 30vw;
+            height: 24vh;
+            border: 1px solid grey ;
+        }
+    </style>
+</head>
+<body>
+    <main id="main">
+        <div id="container">
+            <i id="left" class="fa-sharp fa-solid fa-arrow-left"></i>
+            <!-- Middle Ones images -->
+            <div id="div">
+                <i id="up" class="fa-solid fa-arrow-up"></i>
+                <img id="img" src="https://pwskills.com/images/PWSkills-main.png" alt="#">
+                <i id="down" class="fa-solid fa-arrow-down"></i>
+            </div>
+            <i id="right" class="fa-solid fa-arrow-right"></i>
+        </div>
+    </main>
+    <!-- Script js -->
+    <script>
+        
+        let img = document.getElementById("img");
+        let left = document.getElementById("left");
+        let right = document.getElementById("right");
+        let up = document.getElementById("up");
+        let down = document.getElementById("down");
+
+        up.addEventListener("click",()=>{
+            img.style.marginTop = "-20vw"
+        });
+        left.addEventListener("click",()=>{
+            img.style.marginLeft = "-20vw"
+        });
+        right.addEventListener("click",()=>{
+            img.style.marginRight = "-20vw"
+        });
+        down.addEventListener("click",()=>{
+            img.style.marginBottom = "-20vw"
+        });
+        
+    </script>
+</body>
+</html>

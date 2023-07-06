@@ -1,0 +1,72 @@
+<!-- 18. Change Text on Button click.
+Create a simple HTML page with a heading and a button. The initial text must be “The most affordable learning
+platform”, use JavaScript to change the heading text to “PW Skills” when the button is clicked. The button must
+toggle the text of a heading between "The most affordable learning platform" and "PW Skills" on each click. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom || PW Skill</title>
+    
+
+    <!-- Style Sheets -->
+    <style>
+        #main{
+            width: 100%;
+            height: 96vh;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #heading{
+            font-size: 4vw;
+        }
+        #button{
+            padding: 1vw 2vw ;
+            font-size: 2vw;
+            background-color: rgb(160, 251, 3);
+            color: black;
+            border-radius: 1vw;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <main id="main">
+        <h1 id="heading">The most affordable learning platform</h1>
+        <button id="button">Click Me to Change !</button>
+    </main>
+
+    <!-- Script js -->
+    <script>
+        function changeHeading(){
+            const heading = document.getElementById("heading");
+            const button = document.getElementById("button");
+            const value = heading.innerText;
+            if(value === "The most affordable learning platform" ){
+                heading.innerHTML = "PW Skills";
+                heading.style.color = "greenyellow"
+            }else{
+                heading.innerHTML = "The most affordable learning platform";
+                heading.style.color = "black";
+                heading.style.fontSize = "4vw";
+            }
+        }
+        // function changeHeading(){
+        //     heading.innerText = "PW Skills";
+        //     heading.style.color = "aqua";
+        //     setTimeout(()=>{
+        //     heading.innerText = "The most affordable learning platform";
+        //     heading.style.color = "black"; 
+        //     },500)
+        // } 
+
+        button.addEventListener("click",changeHeading);
+    </script>
+</body>
+</html>
+

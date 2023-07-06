@@ -1,0 +1,55 @@
+<!-- 19. Validate Password
+You are building a login form for a website and need to validate user input using JavaScript. The form has two
+input fields: email and password, and a submit button.
+Your task is to implement JavaScript code that validates the email and password input fields. The email field
+should contain the "@" symbol. The password field should have a minimum length of 8 characters. If either of
+these conditions is not met, an error message “Invalid email or password!” should be displayed in red color as a
+paragraph text below the form. If the password is valid the message “Valid email and password!” must be
+displayed in green color as a paragraph text below the form.
+Your code should run when the user clicks the submit button and should prevent the form from submitting if
+the input is invalid. The input type of email must be text and the input type of password must be password
+without any minLength attribute specified. -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Validate Email and Password</title>
+
+</head>
+<body>
+<form id="form" onsubmit="return submitForm()">
+<input type="email" id="email" placeholder="Email address">
+<input type="password" id="password" placeholder="Password">
+<input type="submit" value="Submit">
+<p id="error"></p>
+</form>
+
+<!-- Javascript  -->
+<script>
+    function validateEmail() {
+      let email = document.getElementById("email").value;
+      let atSymbol = email.indexOf("@");
+      if (atSymbol < 1) {
+        document.getElementById("error").innerHTML = "Invalid email address!";
+        return false;
+      }
+      return true;
+    }
+    
+    function validatePassword() {
+      let password = document.getElementById("password").value;
+      if (password.length < 8) {
+        document.getElementById("error").innerHTML = "Password must be at least 8 characters long!";
+        return false;
+      }
+      return true;
+    }
+    
+    function submitForm() {
+      if (validateEmail() && validatePassword()) {
+        document.getElementById("form").submit();
+      }
+    }
+    </script>
+</body>
+</html>
